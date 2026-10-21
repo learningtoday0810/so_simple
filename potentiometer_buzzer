@@ -1,0 +1,13 @@
+int buzzer = 9;
+
+void setup() {
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  delay(15000);       // Wait 15 seconds
+
+  tone(buzzer, 1000); // Buzzer ON
+  delay(500);         // ON for 0.5 seconds
+  noTone(buzzer);     // Buzzer OFF
+}
