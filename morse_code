@@ -1,0 +1,360 @@
+// C++ code
+//
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+  String word = "HELLO"; 
+  for(int i = 0; i < word.length(); i++)
+  {
+    blink_morse(word[i]); 
+  }
+}
+
+void dot()
+{
+	digitalWrite(LED_BUILTIN, HIGH);
+    delay(1000); 
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(1000);
+}
+
+void dash()
+{
+  	digitalWrite(LED_BUILTIN, HIGH);
+    delay(3000);
+    digitalWrite(LED_BUILTIN, LOW);
+  	delay(1000);
+}
+void blink_morse(char letter)
+{
+  if(letter == 'A')
+  {
+    dot();
+    dash();
+  } 
+  else if(letter == 'B')
+  {
+    dash();
+    dot();
+    dot();
+    dot();
+  }
+  else if(letter == 'C')
+  {
+    dash();
+    dot();
+    dash();
+    dot();
+  }
+  else if(letter == 'D')
+  {
+    dash();
+    dot();
+    dot();
+  }
+  else if(letter == 'E')
+  {
+    dot();
+  }
+  else if(letter == 'F')
+  {
+    dot();
+    dot();
+    dash();
+    dot();
+  }
+  else if(letter == 'G')
+  {
+    dash();
+    dash();
+    dot();
+  }
+  else if(letter == 'H')
+  {
+    dot();
+    dot();
+    dot();
+    dot();
+  }
+  else if(letter == 'I')
+  {
+    dot();
+    dot();
+  }
+  else if(letter == 'J')
+  {
+    dot();
+    dash();
+    dash();
+    dash();
+  }
+  else if(letter == 'K')
+  {
+    dash();
+    dot();
+    dash();
+  }
+  else if(letter == 'L')
+  {
+    dot();
+    dash();
+    dot();
+    dot();
+  }
+  else if(letter == 'M')
+  {
+    dash();
+    dash();
+  }
+  else if(letter == 'N')
+  {
+    dash();
+    dot();
+  }
+  else if(letter == 'O')
+  {
+    dash();
+    dash();
+    dash();
+  }
+  else if(letter == 'P')
+  {
+    dot();
+    dash();
+    dash();
+    dot();
+  }
+  else if(letter == 'Q')
+  {
+    dash();
+    dash();
+    dot();
+    dash();
+  }
+  else if(letter == 'R')
+  {
+    dot();
+    dash();
+    dot();
+  }
+  else if(letter == 'S')
+  {
+    dot();
+    dot();
+    dot();
+  }
+  else if(letter == 'T')
+  {
+    dash();
+  }
+  else if(letter == 'U')
+  {
+    dot();
+    dot();
+    dash();
+  }
+  else if(letter == 'V')
+  {
+    dot();
+    dot();
+    dot();
+    dash();
+  }
+  else if(letter == 'W')
+  {
+    dot();
+    dash();
+    dash();
+  }
+  else if(letter == 'X')
+  {
+    dash();
+    dot();
+    dot();
+    dash();
+  }
+  else if(letter == 'Y')
+  {
+    dash();
+    dot();
+    dash();
+    dash();
+  }
+  else if(letter == 'Z')
+  {
+    dash();
+    dash();
+    dot();
+    dot();
+  }
+  
+  delay(10000);
+}
+
+void loop() 
+{
+
+}
+
+
+
+// // Morse code for letters A-Z
+// const char* morse[] = {
+//   ".-",   // A
+//   "-...", // B
+//   "-.-.", // C
+//   "-..",  // D
+//   ".",    // E
+//   "..-.", // F
+//   "--.",  // G
+//   "....", // H
+//   "..",   // I
+//   ".---", // J
+//   "-.-",  // K
+//   ".-..", // L
+//   "--",   // M
+//   "-.",   // N
+//   "---",  // O
+//   ".--.", // P
+//   "--.-", // Q
+//   ".-.",  // R
+//   "...",  // S
+//   "-",    // T
+//   "..-",  // U
+//   "...-", // V
+//   ".--",  // W
+//   "-..-", // X
+//   "-.--", // Y
+//   "--.."  // Z
+// };
+
+// void setup() {
+//   pinMode(LED_BUILTIN, OUTPUT);
+
+//   String word = "HELLO";
+
+//   // Blink each letter in the word
+//   for (int i = 0; i < word.length(); i++) {
+//     blink_morse(word[i]);
+//     delay(3000);   // Gap between letters
+//   }
+// }
+
+// // Blink a dot (1 second ON)
+// void dot() {
+//   digitalWrite(LED_BUILTIN, HIGH);
+//   delay(1000);
+//   digitalWrite(LED_BUILTIN, LOW);
+//   delay(1000);
+// }
+
+// // Blink a dash (3 seconds ON)
+// void dash() {
+//   digitalWrite(LED_BUILTIN, HIGH);
+//   delay(3000);
+//   digitalWrite(LED_BUILTIN, LOW);
+//   delay(1000);
+// }
+
+// // Convert a letter to Morse code and blink it
+// void blink_morse(char letter) {
+//   if (letter < 'A' || letter > 'Z') return;
+
+//   // Get Morse code for the letter
+//   const char* code = morse[letter - 'A'];
+
+//   // Blink each symbol
+//   for (int i = 0; code[i] != '\0'; i++) {
+//     if (code[i] == '.')
+//       dot();
+//     else
+//       dash();
+//   }
+// }
+
+// void loop() {
+// }
+
+
+
+const char* morse_alphabet[] = {
+  ".-",   // A
+  "-...", // B
+  "-.-.", // C
+  "-..",  // D
+  ".",    // E
+  "..-.", // F
+  "--.",  // G
+  "....", // H
+  "..",   // I
+  ".---", // J
+  "-.-",  // K
+  ".-..", // L
+  "--",   // M
+  "-.",   // N
+  "---",  // O
+  ".--.", // P
+  "--.-", // Q
+  ".-.",  // R
+  "...",  // S
+  "-",    // T
+  "..-",  // U
+  "...-", // V
+  ".--",  // W
+  "-..-", // X
+  "-.--", // Y
+  "--.."  // Z
+};
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  String word = "HELLO";
+
+  for (int i = 0; i < word.length(); i++) {
+    char current_letter = word[i];
+    
+    blink_letter(current_letter);
+    
+    delay(3000);   
+  }
+}
+
+void loop() {
+}
+
+
+void blink_dot() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+
+void blink_dash() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(3000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+
+
+void blink_letter(char letter) {
+  if (letter < 'A' || letter > 'Z') {
+    return;
+  }
+
+
+  int letter_index = letter - 'A';
+
+  const char* morse_code = morse_alphabet[letter_index];
+
+  for (int i = 0; morse_code[i] != '\0'; i++) {
+    if (morse_code[i] == '.') {
+      blink_dot();
+    } else {
+      blink_dash();
+    }
+  }
+}
