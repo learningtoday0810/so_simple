@@ -1,0 +1,13 @@
+const int photoPin = A0;
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int photoValue = analogRead(photoPin);
+  Serial.print("Light Level:");
+  Serial.println(photoValue);
+  delay(1000); 
+}
