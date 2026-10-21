@@ -1,0 +1,36 @@
+const int tempPin = A1;
+const int greenPin = 8;
+const int orangePin = 9;
+const int redPin = 10;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(greenPin, OUTPUT);
+  pinMode(orangePin, OUTPUT);
+  pinMode(redPin, OUTPUT);
+}
+
+void loop(){
+  int sensorValue = analogRead(tempPin);
+  float volt = sensorValue*(5.0/1023.0);
+  float tempC = (volt - 0.5) * 100.0;
+  Serial.print("Temperature = ");
+  Serial.print(tempC);
+  Serial.println();
+
+  if (tempC < 40){
+    digitalWrite(greenPin, HIGH);
+    digitalWrite(orangePin, LOW);
+    digitalWrite(redPin, LOW);
+  }
+  else if(tempC > 41 && tempC <= 50){
+    digitalWrite(greenPin, LOW);
+    digitalWrite(orangePin, HIGH);
+    digitalWrite(redPin, LOW);
+  }
+  else if(tempC > 50){
+    digitalWrite(greenPin, LOW);
+    digitalWrite(orangePin, LOW);
+    digitalWrite(redPin, HIGH);
+  }
+}
