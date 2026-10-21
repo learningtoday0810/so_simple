@@ -1,0 +1,65 @@
+const int segments[10][8] = {
+  // Digit 0: a, b, c, d, e, f on; g, h off
+  {HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, LOW,  LOW},
+
+  // Digit 1: b, c on; others off
+  {LOW,  HIGH, HIGH, LOW,  LOW,  LOW,  LOW,  LOW},
+
+  // Digit 2: a, b, d, e, g on
+  {HIGH, HIGH, LOW,  HIGH, HIGH, LOW,  HIGH, LOW},
+
+  // Digit 3: a, b, c, d, g on
+  {HIGH, HIGH, HIGH, HIGH, LOW,  LOW,  HIGH, LOW},
+
+  // Digit 4: b, c, f, g on
+  {LOW,  HIGH, HIGH, LOW,  LOW,  HIGH, HIGH, LOW},
+
+  // Digit 5: a, c, d, f, g on
+  {HIGH, LOW,  HIGH, HIGH, LOW,  HIGH, HIGH, LOW},
+
+  // Digit 6: a, c, d, e, f, g on
+  {HIGH, LOW,  HIGH, HIGH, HIGH, HIGH, HIGH, LOW},
+
+  // Digit 7: a, b, c on
+  {HIGH, HIGH, HIGH, LOW,  LOW,  LOW,  LOW,  LOW},
+
+  // Digit 8: all segments on
+  {HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, LOW},
+
+  // Digit 9: a, b, c, d, f, g on
+  {HIGH, HIGH, HIGH, HIGH, LOW,  HIGH, HIGH, LOW}
+};
+
+const int A = 11;
+const int B = 10;
+const int C = 7;
+const int D = 8;
+const int E = 9;
+const int F = 12;
+const int G = 13;
+const int H = 6;
+
+void setup() {
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(H, OUTPUT);
+}
+
+void loop() {
+  for (int n = 0; n < 10; n++) {
+    digitalWrite(A, segments[n][0]);
+    digitalWrite(B, segments[n][1]);
+    digitalWrite(C, segments[n][2]);
+    digitalWrite(D, segments[n][3]);
+    digitalWrite(E, segments[n][4]);
+    digitalWrite(F, segments[n][5]);
+    digitalWrite(G, segments[n][6]);
+    digitalWrite(H, segments[n][7]);
+    delay(1000);
+  }
+}
