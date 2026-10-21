@@ -1,0 +1,18 @@
+int Relay = 2;
+
+void setup() {
+  pinMode(Relay, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int Relay_1 = digitalRead(Relay);
+  
+  if (Relay_1) {
+    Serial.println("Button On");
+    delay(1000);
+  } else {
+    Serial.println("Button Off");
+    delay(1000);
+  }
+}
