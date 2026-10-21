@@ -1,0 +1,44 @@
+const int redPin = 10;
+const int greenPin = 8;
+const int bluePin = 9;
+const int tempPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void loop() {
+  int sensorValue = analogRead(tempPin);
+
+  float voltage = sensorValue * (5.0 / 1023.0);
+  float tempC = voltage * 100.0;
+
+  Serial.print("Temperature: ");
+  Serial.print(tempC);
+  Serial.println(" C");
+
+  if (tempC < 40) {
+    // GREEN - SAFE
+    analogWrite(redPin, 0);
+    analogWrite(greenPin, 255);
+    analogWrite(bluePin, 0);
+  }
+  else if (tempC >= 40 && tempC <= 50) {
+    // ORANGE - WARNING
+    analogWrite(redPin, 255);
+    analogWrite(greenPin, 100);
+    analogWrite(bluePin, 0);
+  }
+  else {
+    // RED - DANGER
+    analogWrite(redPin, 255);
+    analogWrite(greenPin, 0);
+    analogWrite(bluePin, 0);
+  }
+
+  delay(1500);
+}
